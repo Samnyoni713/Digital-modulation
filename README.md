@@ -1,1 +1,3 @@
-# Digital-modulation exercise in octave where a specific sigal is declared and modulated using a for loop. Once modulation is complete, we plot and display modualated digital signal along with its carrier signal
+# This is a digital modulation coding exercise to be preferrably octave where a specific sigal is declared and modulated using a for loop. once modulation is complete, we plot and display modualated digital signal along with its carrier signal using the subplot function 
+There are different types of modulation and here 2 complex ones have been done i.e BFSK and BPSK 
+
