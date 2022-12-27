@@ -1,0 +1,54 @@
+clc;
+clear all;
+close all;
+%carrier signal
+11
+T
+x=1; fc=20;
+t=0:T
+x/100:1;
+a=4;
+c=a*sin(2*pi*fc*t);
+%generate message signal
+m= [0 0 1 1 0 1 0 1 0]
+N=length(m); %length of bit
+stream
+t
+a=0;tb
+=
+T
+x
+;
+for i=1:N
+t=[t
+a:.01:t
+b];
+if m(i)>0.5
+m(i)=1;
+m_s=ones(1,length(t));
+else
+m(i)=0;
+m_s=zeros(1,length(t));
+end
+message(i,:)=m_s;
+%modulating
+ask_sig(i,:)=c.*m_s; ta=ta+(Tx+.01); tb=tb+(Tx+.01);
+%plot the message
+subplot(3,1,1);axis([0 N+1
+-2 2]);
+plot(t,message(i,:),'b');
+title('message signal');grid on;
+hold on
+%plot modulated signal
+subplot(3,1,3);plot(t,ask_sig(i,:),'b');
+title('ASK signal');grid on
+hold on
+end
+12
+hold off
+%Plot the carrier signal
+subplot(3,1,2);
+plot(t,c);
+title('carrier signal');
+grid on;
+axis([8 9 -4 4]);
