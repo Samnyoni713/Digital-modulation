@@ -1,0 +1,1 @@
+# Digital-modulation exercise in octave where a specific sigal is declared and modulated using a for loop. Once modulation is complete, we plot and display modualated digital signal along with its carrier signal
