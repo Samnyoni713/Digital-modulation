@@ -1,0 +1,48 @@
+clc;
+clear all;
+close all;
+b = [0 0 1 1 0 1 0 1 0]; %modulating signal
+N = length(b); %length of bit stream
+Tx = 0.0001; %Data rate)
+disp('Binary Input Information at Transmitter: ');
+disp(b);
+#modulating signal as digital
+B_bit=[];
+nb=100; % Digital signal per bit
+for n=1:1:N
+ if b(n)==1;
+ b_n=ones(1,nb);
+ else b(n)==0;
+ b_n=zeros(1,nb);
+ end
+ b_bit=[b_bitt b_n];
+end
+t1=Tx/nb:Tx/nb:nb*N*(Tx/nb); % time of the signal
+subplot(3,1,1);
+10
+plot(t1,b_bit,'lineWidth',2);
+grid on;
+axis([ 0 Tx*N -0.5 1.5]);
+title('modulating signal');
+#bpsk modulation
+Ac=4; %carrier signal
+mc=10;
+fc=mc*(1/Tx); % fc=mc*fs
+fia=0; % carrier phase for bit 1
+fib=pi; % carrier phase for bit 0
+t2=Tx/nb:Tx/nb:Tx;
+t2L=length(t2);
+b_m=[];
+for (i=1:1:N)
+ if (b(i)==1)
+ b_m0=Ac*sin(2*pi*fc*t2+fia); %carrier signal 1 mod
+ else
+ b_m0=Ac*sin(2*pi*fc*t2+fib); %carrier signal 2 mod
+ end
+ b_m=[b_m b_m0];
+end
+t3=Tx/nb:Tx/nb:Tx*N;
+subplot(3,1,2);
+plot(t3,b_m);
+axis([ 0 Tx*N -5 5]);
+title('modulated bpsk signal ');
